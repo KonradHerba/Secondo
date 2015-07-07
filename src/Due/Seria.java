@@ -3,7 +3,7 @@ package Due;
 public class Seria {
 
 	public static void main(String[] args) {
-		System.out.println("Dupa sraka");
+		System.out.println("Kokokoko eurospoko!");
 
 	}
 
