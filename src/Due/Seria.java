@@ -12,18 +12,22 @@ public class Seria {
 	      e.SSN = 666;
 	      e.number = 666;
 	      e.mailCheck();
+	      //Serialize
 	      try
 	      {
-	         FileOutputStream fileOut = new FileOutputStream("/tmp/employee.ser");
+	         FileOutputStream fileOut = new FileOutputStream("C:\\Users\\khe\\workspace-escercizi\\tmp\\employee.ser");
 	         ObjectOutputStream out = new ObjectOutputStream(fileOut);
 	         out.writeObject(e);
 	         out.close();
 	         fileOut.close();
-	         System.out.printf("Serialized data is saved in /tmp/employee.ser");
+	         System.out.println("Serialized data is saved in C:\\Users\\khe\\workspace-escercizi\\tmp\\employee.ser");
 	      }catch(IOException i)
 	      {
 	          i.printStackTrace();
 	          
 	      }
+	      
+	      e.mailCheck();
+	      
 	   }
 }
