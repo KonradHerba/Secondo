@@ -23,6 +23,7 @@ public class Seria {
 	      }catch(IOException i)
 	      {
 	          i.printStackTrace();
+	          
 	      }
 	   }
 }
