@@ -12,7 +12,10 @@ public class Seria {
 	      e.SSN = 666;
 	      e.number = 666;
 	      e.mailCheck();
-	      //Serialize
+	      
+	      /*************************************
+	       *  				Serialize
+	       *************************************/
 	      try
 	      {
 	         FileOutputStream fileOut = new FileOutputStream("C:\\Users\\khe\\workspace-escercizi\\tmp\\employee.ser");
@@ -27,7 +30,39 @@ public class Seria {
 	          
 	      }
 	      
+	      e.address = "Szerokie laki";
 	      e.mailCheck();
 	      
-	   }
+	      /************************************* 
+	       *            De-Serialize
+	       **************************************/
+	      
+	      // zerujemy pracownika
+	      e = null;
+	      try
+	      {
+	         FileInputStream fileIn = new FileInputStream("C:\\Users\\khe\\workspace-escercizi\\tmp\\employee.ser");
+	         ObjectInputStream in = new ObjectInputStream(fileIn);
+	         e = (Employee) in.readObject();
+	         in.close();
+	         fileIn.close();
+	      }catch(IOException i)
+	      {
+	         i.printStackTrace();
+	         return;
+	      }catch(ClassNotFoundException c)
+	      {
+	         System.out.println("Employee class not found");
+	         c.printStackTrace();
+	         return;
+	      }
+	      System.out.println("Deserialized Employee...");
+	      System.out.println("Name: " + e.name);
+	      System.out.println("Address: " + e.address);
+	      System.out.println("SSN: " + e.SSN);
+	      System.out.println("Number: " + e.number);
+	      
+	      //Sprawdzamy czy ma stary adres
+	      e.mailCheck();
+	      }
 }
